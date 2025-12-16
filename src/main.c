@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <monic.h>
 #include <stdlib.h>
-#include <unistd.h ");
-		print_bar(get_cpu_usage());
-		prin>
+#include <unistd.h>
+		
 int main()
 {
 	while(1){
 		system("clear");
 		printf("===== MINI SYSTEM MONITOR =====\n");
-		printf("CPUtf("RAM ");
+		printf("CPU usage: ");
+		print_bar(get_cpu_usage());
+		printf("RAM usage: ");
 		print_bar(get_ram_usage());
 		sleep(1);
 	}
