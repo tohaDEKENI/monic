@@ -5,6 +5,8 @@
 		
 int main()
 {
+	//char *lang = getenv("LANG");
+
 	while(1){
 		system("clear");
 		printf("===== MINI SYSTEM MONITOR =====\n");
@@ -12,8 +14,10 @@ int main()
 		print_bar(get_cpu_usage());
 		printf("RAM usage: ");
 		print_bar(get_ram_usage());
+		print_avg(get_average());
 		sleep(1);
 	}
+
 	return 0;
 }
 
