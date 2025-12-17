@@ -25,5 +25,6 @@ Uptime get_uptime();
 void print_uptime(Uptime upt);
 
 void get_host();
+void get_user();
 
 #endif

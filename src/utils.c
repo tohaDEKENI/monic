@@ -1,6 +1,9 @@
 #include <monic.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
+
 
 void print_bar(float percentage) {
     int bar_length = (int)(percentage / 100.0 * 40);
@@ -38,4 +41,16 @@ void get_host(){
     } else {
         perror("gethostname");
     }
+}
+
+void get_user(){
+    uid_t uid = getuid();                 // ID de l'utilisateur
+    struct passwd *pw = getpwuid(uid);    // Infos utilisateur
+
+    if (pw) {
+        printf("User : %s\n", pw->pw_name);
+    } else {
+        printf("Impossible de récupérer l'utilisateur\n");
+    }
+
 }

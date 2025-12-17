@@ -10,6 +10,7 @@ int main()
 	while(1){
 		system("clear");
 		printf("===== MINI SYSTEM MONITOR =====\n");
+		get_user();
 		get_host();
 		printf("CPU usage: ");
 		print_bar(get_cpu_usage());
