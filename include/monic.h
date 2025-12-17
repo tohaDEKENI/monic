@@ -22,6 +22,6 @@ typedef struct Uptime{
     int hours,min,sec;
 }Uptime;
 Uptime get_uptime();
-void print_uptime();
+void print_uptime(Uptime upt);
 
 #endif

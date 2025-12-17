@@ -17,6 +17,14 @@ void print_avg(LoadAverage lavg){
     printf("Load Average : %.2f %.2f %.2f\n",lavg.one_min,lavg.five_min,lavg.fifteen_min);
 }
 
-void print_uptime(){
-    
+void print_uptime(Uptime upt) {
+    printf("Uptime : ");
+
+    if (upt.hours > 0)
+        printf("%dh ", upt.hours);
+
+    if (upt.min > 0 || upt.hours > 0)
+        printf("%dmin ", upt.min);
+
+    printf("%dsec\n", upt.sec);
 }
