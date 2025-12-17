@@ -27,4 +27,15 @@ void print_uptime(Uptime upt);
 void get_host();
 void get_user();
 
+
+typedef struct ram_swap {
+    float total_ram;   // en GiB
+    float ram_used;    // en GiB
+    float swap_total;  // en GiB
+    float swap_used;   // en GiB
+} RamSwap;
+
+RamSwap get_ram_and_swap();
+//void print_ram_swap_struct(RamSwap rs);
+
 #endif
