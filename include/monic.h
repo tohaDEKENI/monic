@@ -24,4 +24,6 @@ typedef struct Uptime{
 Uptime get_uptime();
 void print_uptime(Uptime upt);
 
+void get_host();
+
 #endif

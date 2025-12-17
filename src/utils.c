@@ -1,5 +1,6 @@
 #include <monic.h>
 #include <stdio.h>
+#include <unistd.h>
 
 void print_bar(float percentage) {
     int bar_length = (int)(percentage / 100.0 * 40);
@@ -27,4 +28,14 @@ void print_uptime(Uptime upt) {
         printf("%dmin ", upt.min);
 
     printf("%dsec\n", upt.sec);
+}
+
+void get_host(){
+    char hostname[1024];  
+
+    if (gethostname(hostname, sizeof(hostname)) == 0) {
+        printf("Hostname : %s\n", hostname);
+    } else {
+        perror("gethostname");
+    }
 }
