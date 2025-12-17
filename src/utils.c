@@ -16,3 +16,7 @@ void print_bar(float percentage) {
 void print_avg(LoadAverage lavg){
     printf("Load Average : %.2f %.2f %.2f\n",lavg.one_min,lavg.five_min,lavg.fifteen_min);
 }
+
+void print_uptime(){
+    
+}

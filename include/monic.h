@@ -18,4 +18,10 @@ typedef struct LoadAverage {
 LoadAverage get_average();
 void print_avg();
 
-#endif 
+typedef struct Uptime{
+    int hours,min,sec;
+}Uptime;
+Uptime get_uptime();
+void print_uptime();
+
+#endif

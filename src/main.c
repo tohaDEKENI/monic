@@ -15,6 +15,7 @@ int main()
 		printf("RAM usage: ");
 		print_bar(get_ram_usage());
 		print_avg(get_average());
+		get_uptime();
 		sleep(1);
 	}
 

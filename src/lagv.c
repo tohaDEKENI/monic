@@ -11,6 +11,6 @@ LoadAverage get_average(){
     LoadAverage lavg;
 
     fscanf(f_avg,"%f %f %f",&lavg.one_min,&lavg.five_min,&lavg.fifteen_min);
-
+    fclose(f_avg);
     return lavg;
 }
