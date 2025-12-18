@@ -36,6 +36,6 @@ typedef struct ram_swap {
 } RamSwap;
 
 RamSwap get_ram_and_swap();
-//void print_ram_swap_struct(RamSwap rs);
+void print_ram_swap_struct(RamSwap rs);
 
 #endif

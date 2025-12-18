@@ -55,7 +55,7 @@ void get_user(){
 
 }
 
-/*
+
 void print_ram_swap_struct(RamSwap rs)
 {
     printf("RAM : %.2f GiB / %.2f GiB\n",
@@ -64,4 +64,3 @@ void print_ram_swap_struct(RamSwap rs)
     printf("Swap: %.2f GiB / %.2f GiB\n",
            rs.swap_used, rs.swap_total);
 }
-*/

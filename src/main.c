@@ -18,7 +18,7 @@ int main()
 		print_bar(get_ram_usage());
 		print_avg(get_average());
 		print_uptime(get_uptime());
-		//print_ram_swap_struct(get_ram_and_swap());
+		print_ram_swap_struct(get_ram_and_swap());
 		sleep(1);
 	}
 
