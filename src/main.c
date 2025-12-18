@@ -12,13 +12,14 @@ int main()
 		printf("===== MINI SYSTEM MONITOR =====\n");
 		get_user();
 		get_host();
-		printf("CPU usage: ");
+		printf("CPU usage    :");
 		print_bar(get_cpu_usage());
-		printf("RAM usage: ");
+		printf("RAM usage    :");
 		print_bar(get_ram_usage());
+		print_ram_swap_struct(get_ram_and_swap());
 		print_avg(get_average());
 		print_uptime(get_uptime());
-		print_ram_swap_struct(get_ram_and_swap());
+		
 		sleep(1);
 	}
 

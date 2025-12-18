@@ -22,7 +22,7 @@ void print_avg(LoadAverage lavg){
 }
 
 void print_uptime(Uptime upt) {
-    printf("Uptime : ");
+    printf("Uptime       : ");
 
     if (upt.hours > 0)
         printf("%dh ", upt.hours);
@@ -37,7 +37,7 @@ void get_host(){
     char hostname[1024];  
 
     if (gethostname(hostname, sizeof(hostname)) == 0) {
-        printf("Hostname : %s\n", hostname);
+        printf("Hostname     : %s\n", hostname);
     } else {
         perror("gethostname");
     }
@@ -48,7 +48,7 @@ void get_user(){
     struct passwd *pw = getpwuid(uid);    // Infos utilisateur
 
     if (pw) {
-        printf("User : %s\n", pw->pw_name);
+        printf("User         : %s\n", pw->pw_name);
     } else {
         printf("Impossible de récupérer l'utilisateur\n");
     }
@@ -58,9 +58,9 @@ void get_user(){
 
 void print_ram_swap_struct(RamSwap rs)
 {
-    printf("RAM : %.2f GiB / %.2f GiB\n",
+    printf("RAM          : %.2f GiB / %.2f GiB\n",
            rs.ram_used, rs.total_ram);
 
-    printf("Swap: %.2f GiB / %.2f GiB\n",
+    printf("Swap         : %.2f GiB / %.2f GiB\n",
            rs.swap_used, rs.swap_total);
 }
