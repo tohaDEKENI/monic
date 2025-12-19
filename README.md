@@ -42,3 +42,5 @@ Load Average : 0.68 0.44 0.45
 Uptime       : 4h 32min 11sec
 
 
+👨‍💻 Auteur
+Dekenitoha – Développeur et concepteur du projet Moni-C.
