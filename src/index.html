@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MoniC Web – System Monitor</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #111;
+      color: #0f0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .box {
+      border: 1px solid #0f0;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    .box b {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.1em;
+    }
+
+    .value {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🖥️ MoniC – Mini System Monitor</h1>
+
+<div class="box">
+  <b>CPU / RAM Usage</b>
+  <div>CPU: <span id="cpu" class="value">0%</span></div>
+  <div>RAM: <span id="ram" class="value">0%</span></div>
+</div>
+
+<div class="box">
+  <b>Load Average</b>
+  <div>1 min : <span id="load1" class="value">0</span></div>
+  <div>5 min : <span id="load5" class="value">0</span></div>
+  <div>15 min: <span id="load15" class="value">0</span></div>
+</div>
+
+<div class="box">
+  <b>Uptime</b>
+  <div><span id="uptime" class="value">0h 0m 0s</span></div>
+</div>
+
+<div class="box">
+  <b>Memory</b>
+  <div>RAM total : <span id="ram_total" class="value">0 GiB</span></div>
+  <div>RAM used  : <span id="ram_used" class="value">0 GiB</span></div>
+  <div>Swap total: <span id="swap_total" class="value">0 GiB</span></div>
+  <div>Swap used : <span id="swap_used" class="value">0 GiB</span></div>
+</div>
+
+<script>
+async function update() {
+  try {
+    const res = await fetch("http://localhost:8080");
+    const data = await res.json();
+
+    // CPU / RAM
+    document.getElementById("cpu").textContent = data.cpu.toFixed(2) + " %";
+    document.getElementById("ram").textContent = data.ram.toFixed(2) + " %";
+
+    // Load average
+    document.getElementById("load1").textContent = data.load["1m"].toFixed(2);
+    document.getElementById("load5").textContent = data.load["5m"].toFixed(2);
+    document.getElementById("load15").textContent = data.load["15m"].toFixed(2);
+
+    // Uptime
+    document.getElementById("uptime").textContent =
+      data.uptime.h + "h " + data.uptime.m + "m " + data.uptime.s + "s";
+
+    // Memory
+    document.getElementById("ram_total").textContent = data.memory.ram_total.toFixed(2) + " GiB";
+    document.getElementById("ram_used").textContent  = data.memory.ram_used.toFixed(2) + " GiB";
+    document.getElementById("swap_total").textContent = data.memory.swap_total.toFixed(2) + " GiB";
+    document.getElementById("swap_used").textContent  = data.memory.swap_used.toFixed(2) + " GiB";
+
+  } catch (err) {
+    console.error("Erreur fetch MoniC:", err);
+  }
+}
+
+// Rafraîchissement chaque seconde
+setInterval(update, 1000);
+
+// Premier update immédiat
+update();
+</script>
+
+</body>
+</html>
