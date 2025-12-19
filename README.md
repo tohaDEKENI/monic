@@ -41,6 +41,12 @@ Swap         : 0.00 GiB / 3.64 GiB
 Load Average : 0.68 0.44 0.45
 Uptime       : 4h 32min 11sec
 
-
+---
+###Technologies utilisées
+C/C++ : récupération des informations système et logique serveur
+httplib.h : serveur HTTP minimaliste
+HTML / CSS / JavaScript : interface web interactive
+JSON : format des données échangées
+---
 👨‍💻 Auteur
 Dekenitoha – Développeur et concepteur du projet Moni-C.
