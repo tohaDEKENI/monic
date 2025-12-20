@@ -8,14 +8,12 @@ int main() {
     httplib::Server server;
 
     server.Get("/", [](auto & /*req*/, auto &res){
-        // Récupérer toutes les valeurs à chaque requête
         float cpu = get_cpu_usage();
         float ram = get_ram_usage();
         LoadAverage avg = get_average();
         Uptime up = get_uptime();
         RamSwap mem = get_ram_and_swap();
 
-        // Construire le JSON avec 2 décimales
         std::ostringstream oss;
         oss << std::fixed << std::setprecision(2);
         oss << "{";
@@ -38,7 +36,6 @@ int main() {
         oss << "}";
 
         std::string json = oss.str();
-        std::cout << "JSON envoyé: " << json << std::endl;
         res.set_header("Access-Control-Allow-Origin", "*");
 
         res.set_content(json, "application/json");
